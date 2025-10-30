@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Give Me The Night",
+    "artist": "George Benson",
+    "cover_url": "https://drive.google.com/uc?export=view&id=DRIVE_FILE_ID_EXAMPLE",
+    "rating": 5,
+    "rhythm": "Soul / Jazz",
+    "preview_audio_url": "",
+    "analysis": "Álbum clássico — groove e voz elegantes.",
+    "spotify_link": "",
+    "youtube_link": "",
+    "favorite_tracks": [
+      { "name": "Give Me The Night" },
+      { "name": "Love X Love" }
+    ]
+  }
+]
