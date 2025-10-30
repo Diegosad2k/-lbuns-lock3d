@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LOCK3D Albums — Galeria</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="LOCK3D — galeria de álbuns" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="LOCK3D Albums — Galeria" />
+  <meta property="og:description" content="LOCK3D — galeria de álbuns" />
+  <meta property="og:type" content="website" />
+
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1>LOCK3D Albums</h1>
+      <div class="controls">
+        <button id="btn-open-editor" class="btn" type="button" aria-controls="editor" aria-expanded="false">Abrir Editor</button>
+        <a id="btn-download-json" class="btn ghost" download="albums.json" href="#" aria-label="Exportar JSON">Exportar JSON</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="gallery" class="gallery" aria-live="polite">
+      <!-- Cartões dos álbuns são injetados por script.js -->
+    </section>
+
+    <aside id="sidebar" class="sidebar" aria-label="Lista de álbuns">
+      <h3>Lista</h3>
+      <div id="thumbnails" class="thumbnails"></div>
+    </aside>
+  </main>
+
+  <!-- Modal de visualização -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close" aria-label="Fechar">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Editor (oculto por padrão) -->
+  <div id="editor" class="editor hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="editor-title">
+    <div class="editor-panel">
+      <h2 id="editor-title">Editor simples</h2>
+      <form id="album-form">
+        <input type="hidden" id="album-index" name="album-index" />
+        <label for="title">Títu lo
+          <input id="title" name="title" required />
+        </label>
+        <label for="artist">Artista
+          <input id="artist" name="artist" required />
+        </label>
+        <label for="rhythm">Gênero / Ritmo
+          <input id="rhythm" name="rhythm" />
+        </label>
+        <label for="rating">Rating (0-5)
+          <input id="rating" name="rating" type="number" min="0" max="5" step="0.5" />
+        </label>
+        <label for="cover_url">Cover URL (imagem pública, ex: Google Drive)
+          <input id="cover_url" name="cover_url" placeholder="https://..." />
+          <small>Dica: para Google Drive use o link convertido (veja README abaixo)</small>
+        </label>
+        <label for="preview_audio_url">Preview audio URL (opcional)
+          <input id="preview_audio_url" name="preview_audio_url" placeholder="https://..." />
+        </label>
+        <label for="spotify_link">Spotify link
+          <input id="spotify_link" name="spotify_link" placeholder="https://open.spotify.com/..." />
+        </label>
+        <label for="youtube_link">YouTube link
+          <input id="youtube_link" name="youtube_link" placeholder="https://youtube.com/..." />
+        </label>
+
+        <label for="analysis">Análise (texto)
+          <textarea id="analysis" name="analysis"></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Salvar</button>
+          <button id="btn-cancel-edit" type="button" class="btn ghost">Cancelar</button>
+          <button id="btn-delete" type="button" class="btn danger">Excluir</button>
+        </div>
+      </form>
+
+      <hr />
+      <div class="editor-bottom">
+        <button id="btn-add-local-assets" class="btn">Adicionar exemplo local</button>
+        <p class="muted">As alterações ficam no seu navegador (localStorage). Use "Exportar JSON" para baixar e subir no repositório.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <small>Feito para GitHub Pages — sem Base64. Modo Drive: cole links públicos no JSON.</small>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
